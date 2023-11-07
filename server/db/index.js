@@ -75,6 +75,7 @@ const seed = async()=> {
 module.exports = {
   fetchProducts,
   fetchCharacters,
+  createCharacters,
   authenticate,
   findUserByToken,
   seed,

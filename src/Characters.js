@@ -1,8 +1,17 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { useParams, useNavigate, Link } from "react-router-dom";
+import CharacterForm from "./CharacterForm";
+import api from "./api";
+const Characters = ({ characters, auth, setCharacters})=> {
 
-const Characters = ({ characters, auth})=> {
-  console.log(auth.id)
+  const handleCharacterSubmission = async () => {
+    try {
+      const response = await api.submitCharacter(json);
+        setCharacters([...characters, response]);
+    } catch (error) {
+      console.error("Error submitting review:", error);
+    }
+  };
   return (
     <div>
       <h2>Characters</h2>
@@ -19,6 +28,13 @@ const Characters = ({ characters, auth})=> {
           })
         }
       </ul>
+      <CharacterForm
+            userId={auth.id}
+            onSubmit={handleCharacterSubmission}
+            characters={characters}
+            setCharacters={setCharacters}
+            auth={auth}
+          />
     </div>
   );
 };

@@ -16,7 +16,10 @@ const fetchCharacters = async(setCharacters)=> {
   const response = await axios.get('/api/characters');
   setCharacters(response.data);
 };
-
+const submitCharacter = async (json) => {
+  const response = await axios.post('/api/characters', json)
+  return response.data
+};
 const attemptLoginWithToken = async(setAuth)=> {
   const token = window.localStorage.getItem('token');
   if(token){
@@ -49,6 +52,7 @@ const api = {
   logout,
   fetchProducts,
   fetchCharacters,
+  submitCharacter,
   attemptLoginWithToken
 };
 

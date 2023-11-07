@@ -63,7 +63,7 @@ const App = ()=> {
               <Characters
                 auth = { auth }
                 characters={ characters }
-                
+                setCharacters={setCharacters}
               />
               
             </main>
