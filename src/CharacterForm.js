@@ -15,7 +15,7 @@ const CharacterForm = ({ userId, auth, existingCharacter, characters, setCharact
       const json = { name: name, strength:strength, user_id: auth.id, dexterity:dexterity, constitution:constitution, intelligence:intelligence, wisdom:wisdom, charisma:charisma};
       const response = await api.submitCharacter(json);
       setCharacters([...characters, response])
-
+      setName('')
   };
  
   return (

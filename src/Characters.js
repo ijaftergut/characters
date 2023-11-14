@@ -13,16 +13,23 @@ const Characters = ({ characters, auth, setCharacters})=> {
     }
   };
   return (
-    <div>
+    <div className="characters">
       <h2>Characters</h2>
       <ul>
         {characters.filter(character=>character.user_id===auth.id).map( character => {
           console.log(character.user_id)
            
             return (
-              <li key={ character.id }>
+              <li key={ character.id }  className="characterBox">
                 { character.name }
-               
+                <ul>
+                <li>Strength: {character.strength}</li>
+                <li>Constitution: {character.constitution}</li>
+                <li>Dexterity: {character.dexterity}</li>
+                <li>Intelligence: {character.intelligence}</li>
+                <li>Wisdom: {character.wisdom}</li>
+                <li>Charisma: {character.charisma}</li>
+                </ul>
               </li>
             );
           })
